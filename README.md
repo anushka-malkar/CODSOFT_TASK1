@@ -90,7 +90,7 @@ npm run dev
 
 ## 🌍 Live Demo
 
-(Add Vercel Link Here)
+https://codsoft-task-1-beta.vercel.app/
 
 ---
 
