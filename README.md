@@ -84,9 +84,25 @@ npm run dev
 
 ## 📷 Screenshot
 
-(Add screenshot later)
+### 🏠 Home Page
+![Home](screenshots/home.png)
 
 ---
+### 👩 About Me
+![About](screenshots/about.png)
+
+---
+
+### 💻 Skills
+![Skills](screenshots/skills.png)
+
+---
+
+### 📂 Featured Projects
+![Projects](screenshots/projects.png)
+
+---
+
 
 ## 🌍 Live Demo
 
