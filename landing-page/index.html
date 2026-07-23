@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <meta charset="UTF-8">
+    <meta name="description" content="CityPulse is a futuristic Smart City Dashboard Landing Page built using HTML, CSS, JavaScript and Chart.js.">
+
+<meta name="keywords" content="Smart City, Dashboard, HTML, CSS, JavaScript, Portfolio">
+
+<meta name="author" content="Anushka Malkar">
+
+<meta name="theme-color" content="#07111F">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CityPulse | Smart City Dashboard</title>
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+    <div class="particles">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+    <!-- ================= STATUS BAR ================= -->
+
+<div class="status-bar">
+
+    <div class="status-left">
+
+        <i class="fa-solid fa-location-dot"></i>
+
+        <span>Mumbai Smart City</span>
+
+    </div>
+
+    <div class="status-center">
+
+        <span id="currentDate">22 July 2026</span>
+
+        |
+
+        <span id="clock">00:00:00</span>
+
+    </div>
+
+    <div class="status-right">
+
+        <i class="fa-solid fa-cloud-sun"></i>
+
+        <span>29°C</span>
+
+        <span>Sunny</span>
+
+    </div>
+
+</div>
+
+<!-- ================= NOTIFICATION BAR ================= -->
+
+<div class="notification-bar">
+
+    <span id="notificationText">
+
+        🚦 Traffic congestion detected on Western Express Highway
+
+    </span>
+
+</div>
+
+    <div id="loader">
+
+    <div class="spinner"></div>
+
+    <h2>Loading CityPulse...</h2>
+
+</div>
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            <i class="fa-solid fa-city"></i>
+
+            CityPulse
+
+        </div>
+
+       <div class="menu-toggle">
+
+    <i class="fa-solid fa-bars"></i>
+
+</div>
+
+<ul class="nav-links">
+
+    <li><a href="#home">Home</a></li>
+
+    <li><a href="#dashboard">Dashboard</a></li>
+
+    <li><a href="#analytics">Analytics</a></li>
+
+    <li><a href="#features">Features</a></li>
+
+    <li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<div class="search-box">
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+    <input type="text" id="searchBar" placeholder="Search city...">
+
+</div>
+
+        <div class="nav-buttons">
+
+<button id="themeBtn">
+
+<i class="fa-solid fa-moon"></i>
+
+</button>
+
+
+</div>
+
+    </nav>
+
+    <!-- ================= HERO ================= -->
+
+   <section id="home" class="hero">
+        <div class="hero-left">
+
+            <p class="tag">
+
+                SMART CITY PLATFORM
+
+            </p>
+
+            <h1>
+
+                Build Smarter Cities with
+                <span>Real-Time Intelligence</span>
+
+            </h1>
+
+            <p class="hero-text">
+
+                Monitor traffic, weather, air quality, energy usage,
+                and public safety from one powerful dashboard.
+
+            </p>
+
+            <div class="buttons">
+
+                <a href="#dashboard" class="primary-btn">
+
+    Explore Dashboard
+
+</a>
+<a href="#features" class="secondary-btn">
+
+    Learn More
+
+</a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-right">
+
+            <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=900"
+                alt="Smart City">
+
+        </div>
+
+        </section>
+
+    <!-- ================= LIVE METRICS ================= -->
+
+    <section class="stats">
+
+        <div class="card">
+
+            <i class="fa-solid fa-car"></i>
+
+            <h2 class="counter" data-target="82">0</h2>
+
+            <p>Traffic Flow</p>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-wind"></i>
+
+           <h2>
+
+<span class="counter" data-target="36">0</span>
+
+AQI
+
+</h2>
+
+            <p>Air Quality</p>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-cloud-sun"></i>
+
+            <h2>
+
+<span class="counter" data-target="29">0</span>
+
+°C
+
+</h2>
+
+            <p>Weather</p>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <h2 class="counter" data-target="74">0</h2>
+            <p>Power Usage</p>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+           <h2 class="counter" data-target="91">0</h2>
+
+            <p>Safety Index</p>
+
+        </div>
+
+    </section>
+    <!-- ================= ANALYTICS ================= -->
+
+<section id="analytics" class="analytics">
+    <section id="dashboard" class="kpi-section">
+
+    <h2>City Performance Overview</h2>
+
+    <div class="kpi-grid">
+
+        <div class="kpi-card">
+
+            <h3 id="sensorCount">1256</h3>
+
+            <p>Active Sensors</p>
+
+        </div>
+
+        <div class="kpi-card">
+
+            <h3 id="cameraCount">432</h3>
+
+            <p>Online Cameras</p>
+
+        </div>
+
+        <div class="kpi-card">
+
+            <h3 id="deviceCount">15670</h3>
+
+            <p>Connected Devices</p>
+
+        </div>
+
+        <div class="kpi-card">
+
+            <h3 id="alertCount">17</h3>
+
+            <p>Emergency Alerts</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <h2>City Analytics Dashboard</h2>
+
+    <p class="analytics-subtitle">
+        Monitor real-time performance indicators across the city.
+    </p>
+
+    <div class="analytics-grid">
+
+        <div class="chart-card">
+
+            <h3>Traffic Trend</h3>
+
+            <canvas id="trafficChart"></canvas>
+
+        </div>
+
+        <div class="chart-card">
+
+            <h3>Energy Consumption</h3>
+
+            <canvas id="powerChart"></canvas>
+
+        </div>
+
+    </div>
+
+    <div class="summary-grid">
+
+        <div class="summary-card">
+
+            <h3>Daily Visitors</h3>
+
+            <h2>1.2M</h2>
+
+            <p>↑ 12% compared to yesterday</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Public Transport</h3>
+
+            <h2>96%</h2>
+
+            <p>On-time performance</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Emergency Response</h3>
+
+            <h2>4.2 min</h2>
+
+            <p>Average response time</p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= FEATURES ================= -->
+
+<section id="features" class="features">
+
+    <h2>Powered by Artificial Intelligence</h2>
+
+    <p class="features-subtitle">
+        CityPulse uses AI and real-time analytics to improve urban living.
+    </p>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <h3>AI Predictions</h3>
+
+            <p>
+                Forecast traffic congestion, weather changes,
+                and energy demand using machine learning.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-road"></i>
+
+            <h3>Smart Traffic</h3>
+
+            <p>
+                Analyze road conditions and optimize traffic signals
+                to reduce congestion.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-leaf"></i>
+
+            <h3>Air Quality</h3>
+
+            <p>
+                Monitor pollution levels in different city zones
+                with live environmental data.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <h3>Energy Optimization</h3>
+
+            <p>
+                Track electricity usage and identify opportunities
+                to save energy.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <h3>Emergency Alerts</h3>
+
+            <p>
+                Instantly notify citizens about accidents,
+                disasters, or public emergencies.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h3>Live Analytics</h3>
+
+            <p>
+                Visualize city performance using interactive
+                dashboards and reports.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= LIVE MONITORING ================= -->
+
+<section class="monitoring">
+
+    <h2>Live Smart City Monitoring</h2>
+
+    <p class="monitor-subtitle">
+        Monitor critical city services with real-time insights.
+    </p>
+
+    <div class="monitor-grid">
+
+        <div class="monitor-card">
+
+            <div class="monitor-header">
+
+                <i class="fa-solid fa-car"></i>
+
+                <span>Traffic Status</span>
+
+            </div>
+
+            <h3>Heavy Traffic</h3>
+
+            <div class="progress">
+
+                <div class="progress-bar traffic"></div>
+
+            </div>
+
+            <p>82%</p>
+
+        </div>
+
+        <div class="monitor-card">
+
+            <div class="monitor-header">
+
+                <i class="fa-solid fa-wind"></i>
+
+                <span>Air Quality</span>
+
+            </div>
+
+            <h3>Good</h3>
+
+            <div class="progress">
+
+                <div class="progress-bar air"></div>
+
+            </div>
+
+            <p>36 AQI</p>
+
+        </div>
+
+        <div class="monitor-card">
+
+            <div class="monitor-header">
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <span>Power Usage</span>
+
+            </div>
+
+            <h3>Normal</h3>
+
+            <div class="progress">
+
+                <div class="progress-bar power"></div>
+
+            </div>
+
+            <p>74%</p>
+
+        </div>
+
+        <div class="monitor-card">
+
+            <div class="monitor-header">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>Safety Index</span>
+
+            </div>
+
+            <h3>Excellent</h3>
+
+            <div class="progress">
+
+                <div class="progress-bar safety"></div>
+
+            </div>
+
+            <p>91%</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= SMART CITY MAP ================= -->
+
+<section class="city-map" data-aos="fade-up">
+
+    <h2>Smart City Coverage</h2>
+
+    <p class="map-subtitle">
+        Monitoring connected services across the entire city.
+    </p>
+
+    <div class="map-container">
+
+        <div id="cityMap"></div>
+
+    </div>
+
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+
+<section class="testimonials" data-aos="fade-up">
+
+    <h2>What People Say</h2>
+
+    <div class="testimonial-grid">
+
+        <div class="testimonial-card">
+
+            <p>
+                "CityPulse helped us monitor city traffic and reduce congestion using real-time analytics."
+            </p>
+
+            <h4>Smart City Officer</h4>
+
+        </div>
+
+        <div class="testimonial-card">
+
+            <p>
+                "The dashboard is modern, intuitive, and provides valuable insights for decision-making."
+            </p>
+
+            <h4>Urban Planner</h4>
+
+        </div>
+
+        <div class="testimonial-card">
+
+            <p>
+                "An impressive platform that combines AI, data visualization, and usability."
+            </p>
+
+            <h4>Technology Consultant</h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact">
+
+    <h2>Get in Touch</h2>
+
+    <form id="contactForm">
+
+        <input
+            type="text"
+            placeholder="Your Name"
+            required
+        >
+
+        <input
+            type="email"
+            placeholder="Your Email"
+            required
+        >
+
+        <textarea
+            rows="6"
+            placeholder="Your Message"
+            required
+        ></textarea>
+
+        <button type="submit" class="primary">
+
+            Send Message
+
+        </button>
+
+    </form>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>CityPulse</h2>
+
+    <p>
+        Smart City Intelligence Platform © 2026
+    </p>
+
+</footer>
+<button id="topBtn">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
